@@ -1,13 +1,12 @@
 {
   "name": "@ciwergrp/tailwindcss-mcp",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "predev": "node scripts/generate-build-info.mjs && node scripts/verify-tailwind-docs-index.mjs",
     "predev:stdio": "node --experimental-strip-types scripts/generate-tailwind-docs-index.ts",
     "dev": "next dev",
-    "dev:stdio": "node --experimental-strip-types src/index.ts",
+    "dev:stdio": "tsx src/index.ts",
     "prebuild": "node scripts/generate-build-info.mjs && node scripts/verify-tailwind-docs-index.mjs",
     "docs:refresh": "node --experimental-strip-types scripts/generate-tailwind-docs-index.ts",
     "build": "next build",
@@ -15,10 +14,6 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.26.0",
     "mcp-handler": "^1.0.0",

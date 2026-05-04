@@ -1,5 +1,5 @@
 import { createMcpHandler } from "mcp-handler";
-import { registerTailwindTools } from "../../../src/mcp.ts";
+import { registerTailwindTools } from "../../../src/mcp";
 
 const handler = createMcpHandler(
   (server) => {

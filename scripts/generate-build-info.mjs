@@ -1,11 +1,8 @@
 import { writeFile } from "node:fs/promises";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import path from "node:path";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const outputPath = resolve(__dirname, "../src/build-info.ts");
 const builtAt = new Date().toISOString();
-
+const outputPath = path.join(process.cwd(), "src", "build-info.ts");
 const content = `export const buildTimestamp = ${JSON.stringify(builtAt)} as const;
 `;
 
