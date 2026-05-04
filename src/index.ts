@@ -1,5 +1,5 @@
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { createTailwindMcpServer, registerTailwindTools } from "./mcp";
+import { createTailwindMcpServer, registerTailwindTools } from "./mcp.ts";
 
 async function main() {
   const server = createTailwindMcpServer();

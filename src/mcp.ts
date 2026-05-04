@@ -1,5 +1,6 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
+import { formatTailwindDocsSearch, searchTailwindDocs } from "./tailwind-docs.ts";
 
 function textResponse(text: string) {
   return {
@@ -99,19 +100,8 @@ export function registerTailwindTools(server: McpServer) {
       limit: z.number().int().positive().optional().describe("Limit number of results.")
     },
     async ({ query, category, limit }) => {
-      const parts: string[] = [`Search Tailwind CSS docs for: ${query}.`];
-
-      if (category) {
-        parts.push(`Category: ${category}.`);
-      }
-
-      if (typeof limit === "number") {
-        parts.push(`Limit: ${limit}.`);
-      }
-
-      parts.push("Wire this tool to a documentation index to return actual hits.");
-
-      return textResponse(parts.join(" "));
+      const state = searchTailwindDocs(query, { category, limit });
+      return textResponse(formatTailwindDocsSearch(query, state));
     }
   );
 
