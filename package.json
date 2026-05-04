@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "predev": "node scripts/generate-build-info.mjs",
     "dev": "next dev",
     "dev:stdio": "tsx src/index.ts",
+    "prebuild": "node scripts/generate-build-info.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
